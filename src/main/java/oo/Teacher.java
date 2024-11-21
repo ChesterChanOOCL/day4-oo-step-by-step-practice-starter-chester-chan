@@ -15,7 +15,7 @@ public class Teacher extends Person {
         if (this.klassList.isEmpty() || this.klassList == null ){
             introduce.append(" I am a teacher.");
         }else {
-            introduce.append(" I am a teacher.").append(SPACE).append("I teach Class");
+            introduce.append(" I am a teacher.").append(SPACE).append("I teach Class ");
             for (int i = 0; i < this.klassList.size(); i++) {
                 introduce.append(this.klassList.get(i).getClassNumber());
                 if (i != this.klassList.size() - 1) {
