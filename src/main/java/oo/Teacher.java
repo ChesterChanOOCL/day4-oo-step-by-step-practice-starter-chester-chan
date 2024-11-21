@@ -38,6 +38,10 @@ public class Teacher extends Person {
         this.klassList.add(klass);
     }
 
+    public List<Klass> getKlassList() {
+        return klassList;
+    }
+
     public boolean isTeaching(Student student) {
         return this.klassList.contains(student.getKlass());
     }
