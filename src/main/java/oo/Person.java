@@ -22,11 +22,9 @@ public class Person {
             if (this == object) {
                 return true;
             }
-            // Check if the object is an instance of Person and is not null
             if (object == null || getClass() != object.getClass()) {
                 return false;
             }
-            // Cast the object to a Person
             Person person = (Person) object;
             return id == person.id;
     }

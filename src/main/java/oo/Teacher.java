@@ -2,15 +2,12 @@ package oo;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class Teacher extends Person {
     private List<Klass> klassList;
     public Teacher(int id, String name, int age) {
         super(id, name, age);
         klassList = new ArrayList<Klass>();
     }
-
-
     public String introduce() {
         StringBuilder introduce = new StringBuilder(super.introduce());
         introduce.append(" I am a teacher. I teach Class ");
