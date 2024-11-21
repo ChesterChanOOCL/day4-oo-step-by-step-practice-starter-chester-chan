@@ -22,6 +22,11 @@ public class Student extends Person {
         return klass;
     }
 
+    public void setKlass(Klass klass) {
+        this.klass = klass;
+    }
+
+
     @Override
     public int hashCode() {
         return super.hashCode();

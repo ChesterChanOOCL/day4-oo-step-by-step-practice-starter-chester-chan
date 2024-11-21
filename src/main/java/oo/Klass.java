@@ -3,7 +3,7 @@ package oo;
 public class Klass {
 
     private int classNumber ;
-
+    private Student leader;
     public Klass(int classNumber){
         this.classNumber = classNumber;
     }
@@ -19,6 +19,19 @@ public class Klass {
 
     public void setClassNumber(int classNumber) {
         this.classNumber = classNumber;
+    }
+
+    public boolean isLeader(Student student){
+        return student.equals(leader);
+    }
+
+    public void assignLeader(Student student){
+        if (student.getKlass() == null || student.getKlass().getClassNumber() != this.classNumber){
+            System.out.print("It is not one of us.\n");
+        }
+        else {
+            this.leader = student;
+        }
     }
 
     @Override
