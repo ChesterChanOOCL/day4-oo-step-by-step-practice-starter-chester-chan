@@ -1,41 +1,40 @@
 package oo;
 
 public class Student extends Person {
-
     private Klass klass;
 
     public Student(int id, String name, int age) {
         super(id, name, age);
     }
 
-    public String introduce() {
-        StringBuilder introduce = new StringBuilder(super.introduce());
-        return this.klass != null ? introduce.append(" I am a student. ").append("I am in class ").append(this.klass.getClassNumber()).append(".").toString() :  introduce.append(" I am a student.").toString();
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        return super.equals(object);
-    }
-
     public Klass getKlass() {
         return klass;
     }
 
-    public void setKlass(Klass klass) {
-        this.klass = klass;
+    public void join(Klass klass) {
+        if (klass != null) {
+            this.klass = klass;
+        }
     }
 
+    public boolean isIn(Klass klass) {
+        if (this.klass == null) {
+            return false ;
+        }
+        return this.klass.equals(klass);
+    }
+    @Override
+    public String getName() {
+        return super.getName();
+    }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-    public boolean isIn(Klass klass){
-        return this.klass == klass;
-    }
-
-    public void join(Klass klass) {
-         this.klass =  klass;
+    public String introduce() {
+        StringBuilder introduce = new StringBuilder(super.introduce());
+        introduce.append(" I am a student.");
+        if (klass != null) {
+            introduce.append(" I am in class ").append(klass.getClassNumber()).append(".");
+        }
+        return introduce.toString();
     }
 }
