@@ -2,6 +2,7 @@ package oo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Klass {
 
@@ -48,16 +49,23 @@ public class Klass {
     }
 
     private void notifyTeachers(Student student) {
-        for (Teacher teacher : teachers) {
-            System.out.println("I am " + teacher.getName() + ", teacher of Class " + this.classNumber + ". I know " + student.getName() + " become Leader.");
+        List<String> notifications = teachers.stream()
+                .map(teacher -> "I am " + teacher.getName() + ", teacher of Class " + this.classNumber + ". I know " + student.getName() + " become Leader.")
+                .collect(Collectors.toList());
+
+        for (String notification : notifications) {
+            System.out.println(notification);
         }
     }
 
     private void notifyStudents(Student student) {
-        for (Student s : students) {
-            if (!s.getName().equals(student.getName())) {
-                System.out.println("I am " + s.getName() + ", student of Class " + this.classNumber + ". I know " + student.getName() + " become Leader.");
-            }
+        List<String> notifications = students.stream()
+                .filter(s -> !s.getName().equals(student.getName()))
+                .map(s -> "I am " + s.getName() + ", student of Class " + this.classNumber + ". I know " + student.getName() + " become Leader.")
+                .collect(Collectors.toList());
+
+        for (String notification : notifications) {
+            System.out.println(notification);
         }
     }
 
