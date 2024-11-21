@@ -1,6 +1,7 @@
 package oo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Teacher extends Person {
     public static final String SPACE = " ";
@@ -14,17 +15,14 @@ public class Teacher extends Person {
     public String introduce() {
         StringBuilder introduce = new StringBuilder(super.introduce());
 
-        if (this.klassList.isEmpty() || this.klassList == null) {
+        if (this.klassList == null || this.klassList.isEmpty()) {
             introduce.append(" I am a teacher.");
         } else {
             introduce.append(" I am a teacher.").append(SPACE).append("I teach Class ");
-            for (int i = 0; i < this.klassList.size(); i++) {
-                introduce.append(this.klassList.get(i).getClassNumber());
-                if (i != this.klassList.size() - 1) {
-                    introduce.append(", ");
-                }
-            }
-            introduce.append(".");
+            String classNumbers = this.klassList.stream()
+                    .map(klass -> String.valueOf(klass.getClassNumber()))
+                    .collect(Collectors.joining(", "));
+            introduce.append(classNumbers).append(".");
         }
         return introduce.toString();
     }
