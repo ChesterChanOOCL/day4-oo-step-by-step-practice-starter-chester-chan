@@ -10,8 +10,9 @@ public class Student extends Person {
 
     public String introduce() {
         StringBuilder introduce = new StringBuilder(super.introduce());
-        return introduce.append(" I am a student. ").append("I am in class ").append(this.klass.getClassNumber()).append(".").toString();
+        return this.klass != null ? introduce.append(" I am a student. ").append("I am in class ").append(this.klass.getClassNumber()).append(".").toString() :  introduce.append(" I am a student. ").append(".").toString();
     }
+
     @Override
     public boolean equals(Object object) {
         return super.equals(object);
