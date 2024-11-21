@@ -17,6 +17,10 @@ public class Student extends Person {
         return super.equals(object);
     }
 
+    public Klass getKlass() {
+        return klass;
+    }
+
     @Override
     public int hashCode() {
         return super.hashCode();
