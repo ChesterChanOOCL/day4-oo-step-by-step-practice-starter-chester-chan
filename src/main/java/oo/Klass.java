@@ -21,10 +21,6 @@ public class Klass {
         this.classNumber = classNumber;
     }
 
-    public boolean isLeader(Student student){
-        return student.equals(leader);
-    }
-
     public void assignLeader(Student student){
         if (student.getKlass() == null || student.getKlass().getClassNumber() != this.classNumber){
             System.out.print("It is not one of us.\n");
@@ -33,6 +29,12 @@ public class Klass {
             this.leader = student;
         }
     }
+
+    public boolean isLeader(Student student){
+        return student.equals(leader);
+    }
+
+
 
     @Override
     public boolean equals(Object object) {
