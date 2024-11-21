@@ -21,10 +21,6 @@ public class Klass {
         return classNumber;
     }
 
-    public void setClassNumber(int classNumber) {
-        this.classNumber = classNumber;
-    }
-
     public void assignLeader(Student student) {
         if (student.getKlass() == null || student.getKlass().getClassNumber() != this.classNumber) {
             System.out.print("It is not one of us.\n");
