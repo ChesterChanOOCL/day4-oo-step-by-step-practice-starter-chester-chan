@@ -3,6 +3,7 @@ package oo;
 import java.util.ArrayList;
 import java.util.List;
 public class Teacher extends Person {
+    public static final String SPACE = " ";
     private List<Klass> klassList;
     public Teacher(int id, String name, int age) {
         super(id, name, age);
@@ -10,14 +11,19 @@ public class Teacher extends Person {
     }
     public String introduce() {
         StringBuilder introduce = new StringBuilder(super.introduce());
-        introduce.append(" I am a teacher. I teach Class ");
-        for (int i = 0; i < klassList.size(); i++) {
-            introduce.append(klassList.get(i).getClassNumber());
-            if (i != klassList.size() - 1) {
-                introduce.append(", ");
+
+        if (this.klassList.isEmpty() || this.klassList == null ){
+            introduce.append(" I am a teacher.");
+        }else {
+            introduce.append(" I am a teacher.").append(SPACE).append("I teach Class");
+            for (int i = 0; i < this.klassList.size(); i++) {
+                introduce.append(this.klassList.get(i).getClassNumber());
+                if (i != this.klassList.size() - 1) {
+                    introduce.append(", ");
+                }
             }
+            introduce.append(".");
         }
-        introduce.append(".");
         return introduce.toString();
     }
 

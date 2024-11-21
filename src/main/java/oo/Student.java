@@ -10,7 +10,7 @@ public class Student extends Person {
 
     public String introduce() {
         StringBuilder introduce = new StringBuilder(super.introduce());
-        return this.klass != null ? introduce.append(" I am a student. ").append("I am in class ").append(this.klass.getClassNumber()).append(".").toString() :  introduce.append(" I am a student. ").append(".").toString();
+        return this.klass != null ? introduce.append(" I am a student. ").append("I am in class ").append(this.klass.getClassNumber()).append(".").toString() :  introduce.append(" I am a student.").toString();
     }
 
     @Override
