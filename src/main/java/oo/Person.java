@@ -16,7 +16,7 @@ public class Person {
         introduce.append("My name is ").append(name).append(". I am ").append(age).append(" years old.");
         return introduce.toString();
     }
-    // write a method to compare two objects
+
     @Override
      public boolean equals(Object object) {
             if (this == object) {
