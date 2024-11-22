@@ -1,6 +1,6 @@
 package oo;
 
-public class Person {
+public class Person implements Observer {
     private final int id;
     private final String name;
     private final int age;
@@ -21,6 +21,8 @@ public class Person {
     public String getName() {
         return name;
     }
+
+
     @Override
      public boolean equals(Object object) {
             if (this == object) {
@@ -34,5 +36,10 @@ public class Person {
     }
     public static void main(String[] args) {
         Person person1 = new Person(1, "John Doe", 30);
+    }
+
+    @Override
+    public void update() {
+        System.out.print("I am " + name + ", ");
     }
 }

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements Observer {
     public static final String SPACE = " ";
     private List<Klass> klassList;
 
@@ -46,6 +46,11 @@ public class Teacher extends Person {
     @Override
     public boolean equals(Object object) {
         return super.equals(object);
+    }
+    @Override
+    public void update() {
+        super.update();
+        System.out.println("teacher of Class "+ klassList.get(0).getClassNumber() + ". I know " + klassList.get(0).getLeader().getName() + " become Leader.");
     }
 
     @Override

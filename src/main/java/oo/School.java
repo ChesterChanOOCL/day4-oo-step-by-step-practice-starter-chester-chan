@@ -47,4 +47,12 @@ public class School {
         school.addTeacher(tom);
         school.startSchool();;
     }
+
+    public void addKlass(Klass klass) {
+        for (Teacher teacher : teachers) {
+            if (teacher.belongsTo(klass)) {
+                teacher.assignTo(klass);
+            }
+        }
+    }
 }

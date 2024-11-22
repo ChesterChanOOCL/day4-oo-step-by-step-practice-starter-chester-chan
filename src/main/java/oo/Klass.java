@@ -28,8 +28,8 @@ public class Klass {
         } else {
             this.leader = student;
             students.add(student);
-            notifyTeachers(student);
-            notifyStudents(student);
+            notifyTeachers();
+            notifyStudents();
         }
     }
 
@@ -44,24 +44,15 @@ public class Klass {
         teachers.add(teacher);
     }
 
-    private void notifyTeachers(Student student) {
-        List<String> notifications = teachers.stream()
-                .map(teacher -> "I am " + teacher.getName() + ", teacher of Class " + this.classNumber + ". I know " + student.getName() + " become Leader.")
-                .collect(Collectors.toList());
-
-        for (String notification : notifications) {
-            System.out.println(notification);
+    private void notifyTeachers() {
+        for (Teacher teacher : teachers) {
+            teacher.update();
         }
     }
 
-    private void notifyStudents(Student student) {
-        List<String> notifications = students.stream()
-                .filter(s -> !s.getName().equals(student.getName()))
-                .map(s -> "I am " + s.getName() + ", student of Class " + this.classNumber + ". I know " + student.getName() + " become Leader.")
-                .collect(Collectors.toList());
-
-        for (String notification : notifications) {
-            System.out.println(notification);
+    private void notifyStudents() {
+        for (Student student : students) {
+            student.update();
         }
     }
 
@@ -80,5 +71,9 @@ public class Klass {
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    public Person getLeader() {
+        return leader;
     }
 }

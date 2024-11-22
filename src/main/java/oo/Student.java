@@ -1,6 +1,6 @@
 package oo;
 
-public class Student extends Person {
+public class Student extends Person implements Observer {
     private Klass klass;
 
     public Student(int id, String name, int age) {
@@ -17,6 +17,11 @@ public class Student extends Person {
         }
     }
 
+    @Override
+    public void update() {
+        super.update();
+        System.out.println("student of Class " + klass.getClassNumber() + ". I know " + klass.getLeader().getName() + " become Leader.");
+    }
     public boolean isIn(Klass klass) {
         if (this.klass == null) {
             return false ;
